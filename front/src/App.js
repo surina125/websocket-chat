@@ -1,5 +1,6 @@
 import "./App.css";
 import InputField from "./components/InputField/InputField";
+import MessageContainer from "./components/MessageContainer/MessageContainer";
 import socket from "./server"
 import { useEffect, useState } from 'react'
 
@@ -7,10 +8,12 @@ function App() {
   // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState(null)
   const [message, setMessage] = useState('')
+  const [messageList, setMessageList] = useState([])
+  console.log("message List", messageList)
 
   useEffect(() => {
     socket.on('message', (message) => {
-      console.log("message", message)
+      setMessageList((prevState) => prevState.concat(message))
     })
     askUserName()
   }, [])
@@ -33,9 +36,10 @@ function App() {
   }
   return (
     <div>
-      <div className="App"></div>
-
-      <InputField message={message} setMessage={setMessage} sendMessage={sendMessage} />
+      <div className="App">
+        <MessageContainer messageList={messageList} user={user} />
+        <InputField message={message} setMessage={setMessage} sendMessage={sendMessage} />
+      </div>
     </div>
   );
 }
