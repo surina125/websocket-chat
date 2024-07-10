@@ -1,6 +1,6 @@
-# 웹소켓 채팅 애플리케이션
+# 채팅 애플리케이션
 
-이 프로젝트는 Node.js, MongoDB, React를 사용하여 웹소켓 기반의 채팅 애플리케이션을 구현한 것입니다.
+Node.js, MongoDB, React를 사용한 웹소켓 기반의 채팅 애플리케이션
 
 ## 목차
 - [설치](#설치)
@@ -43,10 +43,6 @@ nodemon index.js
 <br>
 
 # 프론트엔드
-```bash
-cd front
-npm install
-```
 디렉토리 구조
 ```
 📦front
@@ -64,6 +60,11 @@ npm install
  ┃ ┣ 📜index.js
  ┣ 📜package.json
  ┗ 📜README.md
+```
+프론트엔드 의존성 설치
+```bash
+cd front
+npm install
 ```
 프론트엔드 서버 시작
 ```bash
